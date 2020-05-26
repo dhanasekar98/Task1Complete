@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+  <html>
+   <head>
+	  <title>RegistrationForm</title>
+       <script type="text/javascript">
+
+	       var loc=[];
+	       loc=JSON.parse(localStorage.getItem('Details'));
+
+	       var obj,taken;
+	       var com=undefined;
+
+	       function takevalue(){
+	
+		     taken=take();
+
+		     local(taken);
+	        }
+
+
+	function local(data){
+	
+		if(loc==com)
+		{
+			var dat=[];
+			dat.push(data);
+			localStorage.Details=JSON.stringify(dat);
+		}
+		else
+		{
+
+		loc.push(data);
+		localStorage.Details=JSON.stringify(loc);
+	    }
+	
+	}
+	
+	function take(){
+	
+		var first=document.getElementById("first-name").value;
+		var last=document.getElementById("last").value;
+		var email=document.getElementById("email").value;
+		var phonenumber=document.getElementById("phone-number").value;
+		var location=document.getElementById("location").value;
+		var hobby=document.getElementById("Hobby").value;
+
+		 obj={
+			first:first,
+			last:last,
+			email:email,
+			phonenumber:phonenumber,
+			location:location,
+			hobby:hobby
+		};
+
+		document.getElementById("first-name").value="";
+		document.getElementById("last").value="";
+		document.getElementById("email").value="";
+		document.getElementById("phone-number").value="";
+		document.getElementById("location").value="";
+		document.getElementById("Hobby").value="";
+		return obj;
+	}
+	 
+   </script>
+
+</head>
+
+<body>
+
+	<form onsubmit="event.preventDefault(),takevalue()" autocomplete="off">
+
+		<div>
+			<label>First Name</label>
+			<input id="first-name"type="text" name="first-name">
+		</div>
+
+		<div>
+			<label>Last</label>
+			<input id="last"type="text" name="last">
+		</div>
+
+		<div>
+			<label>Email</label>
+			<input  id="email"type="text" name="email">
+		</div>
+
+		<div>
+			<label>PhoneNumber</label>
+			<input id="phone-number"type="number" name="number">
+		</div>
+
+		<div>
+			<label>Location</label>
+			<input id="location"type="text" name="Location">
+		</div>
+
+		<div>
+			<label>Hobby</label>
+			<input id="Hobby"type="text" name="Hobby">
+		</div>
+
+		<button>Add item</button>
+
+	</form>
+
+    <a href="TableForm.html"><button>Go back</button></a>
+
+ </body>
+</html>
